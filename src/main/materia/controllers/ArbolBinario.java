@@ -1,6 +1,6 @@
 package main.materia.controllers;
 
-import main.materia.controllers.models;
+
 import main.materia.controllers.models.Node;
 
 public class ArbolBinario {
@@ -42,5 +42,9 @@ public class ArbolBinario {
                 }
             }
         }
+    }
+    // metodo retorna raiz del arbol...
+    public Node getRoot() {
+        return root;
     }
 }
