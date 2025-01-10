@@ -1,15 +1,42 @@
 
+import java.util.List;
 import main.ejercicio_03_listLeves.ListLevels;
 import main.materia.controllers.ArbolBinario;
 import main.materia.controllers.ArbolRecorridos;
+import main.materia.controllers.models.Node;
 
 public class App {
     public static void main(String[] args) {
         // Llamamos al método para correr el árbol binario
-        runArbolBinario();
+       runArbolBinario();
         runEjercicio();
     }
 
+    private static void runEjercicio() {
+
+        ArbolBinario arbolbinario = new ArbolBinario();
+        int[] valores = {4, 2, 7, 1, 3, 6, 9};
+        for (int valor : valores) {
+            arbolbinario.insert(valor);
+        }
+
+        System.out.println("Árbol binario:");
+        arbolbinario.printTree();
+
+
+        ListLevels levels = new ListLevels();
+        List<List<Node>> result = levels.ListLevels(arbolbinario.getRoot());
+
+        System.out.println("\nNiveles del árbol:");
+        for (int i = 0; i < result.size(); i++) {
+            List<Node> level = result.get(i);
+            System.out.print("Nivel " + i + ": ");
+            for (Node node : level) {
+                System.out.print(node.getValue() + " ");
+            }
+            System.out.println();
+        }
+    }
 
     public static void runArbolBinario() {
 
@@ -36,20 +63,5 @@ public class App {
         System.out.println("\nrecorrido en in Order (recursivo)");
         arbolRecorridos.inOrderRecursivo(arbolbinario.getRoot());
         
-    }
-
-    private static void runEjercicio(){
-        ArbolBinario arbolbinario = new ArbolBinario();
-        ListLevels levels= new ListLevels();
-
-        int[] valores = { numeros };
-        
-        for (int valor : valores) {
-            arbolbinario.insert(valor);
-        }
-
-       arbolbinario.printTree();
-        int lista = levels.ListLevels(arbolbinario.getRoot());
-        System.out.println(lista);
     }
 }
