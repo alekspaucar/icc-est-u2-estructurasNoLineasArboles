@@ -1,19 +1,13 @@
 package main.materia.controllers;
-
-
 import main.materia.controllers.models.Node;
-
 public class ArbolBinario {
     private Node root;
-
     public void insert(int value) {
         root = insert(root, value);
     }
-
     private Node insert(Node node, int value) {
         if (node == null)
             return new Node(value);
-
         if (value < node.getValue()) {
             node.setLeft(insert(node.getLeft(), value));
         } else if (value > node.getValue()) {
@@ -21,11 +15,12 @@ public class ArbolBinario {
         }
         return node;
     }
-
+    //metodo puesto en la clase ArbolAVL
+/* 
     public void printTree() {
         printTree(root, " ", true);
     }
-
+    
     private void printTree(Node node, String prefix, boolean isLeft) {
         if (node != null) {
             System.out.println(prefix + (isLeft ? "-----" : "-----") + node.getValue());
@@ -47,4 +42,5 @@ public class ArbolBinario {
     public Node getRoot() {
         return root;
     }
+    */
 }
