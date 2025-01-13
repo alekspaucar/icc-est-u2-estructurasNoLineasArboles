@@ -11,7 +11,7 @@ public class App {
        runArbolBinario();
         runEjercicio();
     }
-
+//pruebas de git por esa man de la karina que entro a mi git
     private static void runEjercicio() {
 
         ArbolBinario arbolbinario = new ArbolBinario();
