@@ -1,6 +1,7 @@
 
 package main.materia.controllers;
-import main.materia.controllers.models.Node;
+import common.Node;
+
 public class ArbolAVL {
 private Node root;
 

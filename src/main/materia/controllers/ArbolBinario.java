@@ -1,5 +1,6 @@
 package main.materia.controllers;
-import main.materia.controllers.models.Node;
+import common.Node;
+
 public class ArbolBinario {
     private Node root;
     public void insert(int value) {
@@ -15,6 +16,10 @@ public class ArbolBinario {
         }
         return node;
     }
+    public Node getRoot() {
+        return root;
+    }
+    
     //metodo puesto en la clase ArbolAVL
 /* 
     public void printTree() {

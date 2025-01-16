@@ -1,7 +1,7 @@
 package main.materia.controllers;
-
+import common.Node;
 import java.util.Stack;
-import main.materia.controllers.models.Node;
+
 
 public class ArbolRecorridos {
     public void preOrderIterativo(Node root){
@@ -10,7 +10,6 @@ public class ArbolRecorridos {
     while(!stack.isEmpty()){
         Node node = stack.pop();
         System.out.print(node.getValue()+" ");
-
         if(node.getRight()!= null){
             stack.push(node.getRight());
         }
@@ -21,22 +20,18 @@ public class ArbolRecorridos {
         }
     }
     public void preOrderRecursivo(Node node){
-        //verifica si el nodo esta vacio 
+
         if( node != null){
-            //imprimir el valor actual 
+
             System.out.print(node.getValue() + ", ");            
-            //metodo recursivo en el lado izquierdo
             preOrderRecursivo(node.getLeft());
-            //metodo recursivo en el lado derecho
             preOrderRecursivo(node.getRight());
         }
     }
     public void inOrderRecursivo(Node node){
         if(node != null){
             inOrderRecursivo(node.getLeft());
-
             System.out.print(node.getValue()+", ");
-
             inOrderRecursivo(node.getRight());
 
         }

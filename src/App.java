@@ -1,17 +1,38 @@
 
 import java.util.List;
+
+import common.Node;
+import main.ejercicio_01_insert.InsertBST;
 import main.ejercicio_03_listLeves.ListLevels;
 import main.materia.controllers.ArbolAVL;
 import main.materia.controllers.ArbolBinario;
 import main.materia.controllers.ArbolRecorridos;
-import main.materia.controllers.models.Node;
+
 public class App {
     public static void main(String[] args) {
 // Llamamos al método para correr el árbol binario
-       //runArbolBinario();
-       // runEjercicio();
-        runArbolAvl();
+        //runArbolBinario();
+        // runEjercicio();
+        //runArbolAvl();
+        
+        runInsertBST();
+    }public static void runInsertBST() {
+        InsertBST bst = new InsertBST();
+        Node root = null;
+    
+        root = bst.insert(root, 50);  
+        root = bst.insert(root, 30);
+        root = bst.insert(root, 70);
+        root = bst.insert(root, 20);
+        root = bst.insert(root, 40);
+        root = bst.insert(root, 60);
+        root = bst.insert(root, 80);
+   
+        System.out.print("InOrder Traversal: ");
+        bst.inOrder(root); 
+        System.out.println();
     }
+
     private static void runArbolAvl() {
     int [] values = {10,20,15,24,9,8,21,23,50,25};   
     ArbolAVL arbolavl = new ArbolAVL();
@@ -21,9 +42,6 @@ public class App {
         arbolavl.printTree();
 
     }
-
-
-
     private static void runEjercicio() {
         ArbolBinario arbolbinario = new ArbolBinario();
         int[] valores = {4, 2, 7, 1, 3, 6, 9};
@@ -78,3 +96,4 @@ public class App {
 
     }
 }
+ 

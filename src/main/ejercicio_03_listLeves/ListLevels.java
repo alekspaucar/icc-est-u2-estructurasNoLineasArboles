@@ -1,28 +1,27 @@
 package main.ejercicio_03_listLeves;
 
+import common.Node;
 import java.util.*;
-import main.materia.controllers.models.Node;
 
 public class ListLevels {
 
-    public List<List<Node>> ListLevels(Node root) {
-        List<List<Node>> levels = new ArrayList<>();
+    public List<List<Integer>> listLevels(Node root) {
+        List<List<Integer>> levels = new ArrayList<>();
 
         if (root == null) {
-            return levels;  
+            return levels;
         }
 
         Queue<Node> queue = new LinkedList<>();
-        queue.add(root);  
+        queue.add(root);
 
         while (!queue.isEmpty()) {
-            int levelSize = queue.size();  
-            List<Node> level = new ArrayList<>();  
+            int levelSize = queue.size();
+            List<Integer> currentLevel = new ArrayList<>();
 
             for (int i = 0; i < levelSize; i++) {
                 Node currentNode = queue.poll();
-                level.add(currentNode); 
-
+                currentLevel.add(currentNode.getValue());
 
                 if (currentNode.getLeft() != null) {
                     queue.add(currentNode.getLeft());
@@ -32,9 +31,9 @@ public class ListLevels {
                 }
             }
 
-            levels.add(level); 
+            levels.add(currentLevel);
         }
 
-        return levels; 
+        return levels;
     }
 }
