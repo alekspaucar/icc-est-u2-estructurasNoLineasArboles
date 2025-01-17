@@ -7,6 +7,8 @@ import main.ejercicio_03_listLeves.ListLevels;
 import main.materia.controllers.ArbolAVL;
 import main.materia.controllers.ArbolBinario;
 import main.materia.controllers.ArbolRecorridos;
+import main.materia.controllers.Graph;
+import main.materia.models.NodeGraph;
 
 public class App {
     public static void main(String[] args) {
@@ -14,9 +16,33 @@ public class App {
         //runArbolBinario();
         // runEjercicio();
         //runArbolAvl();
-        
-        runInsertBST();
-    }public static void runInsertBST() {
+        //runInsertBST();
+        runGraph();
+
+    }
+    private static void runGraph(){
+        Graph grafo = new Graph();
+        NodeGraph nodo1 = grafo.addNodeG(5);
+        NodeGraph nodo2 = grafo.addNodeG(7);
+        NodeGraph nodo3 = grafo.addNodeG(9);
+        NodeGraph nodo4 = grafo.addNodeG(11);
+        NodeGraph nodo5 = grafo.addNodeG(3);
+        grafo.addEdge(nodo1, nodo5);
+        grafo.addEdge(nodo1, nodo2);
+        grafo.addEdge(nodo1,nodo3);
+        grafo.addEdge(nodo2, nodo3);
+        grafo.addEdge(nodo5, nodo3);
+        grafo.addEdge(nodo5, nodo4);
+
+        grafo.printGraph();
+
+    }
+
+
+
+
+
+    public static void runInsertBST() {
         InsertBST bst = new InsertBST();
         Node root = null;
     
@@ -32,7 +58,6 @@ public class App {
         bst.inOrder(root); 
         System.out.println();
     }
-
     private static void runArbolAvl() {
     int [] values = {10,20,15,24,9,8,21,23,50,25};   
     ArbolAVL arbolavl = new ArbolAVL();
