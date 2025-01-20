@@ -30,7 +30,6 @@ public class App {
         NodeGraph node3 = graph.addNodeG(3);
         NodeGraph node4 = graph.addNodeG(4);
         NodeGraph node5 = graph.addNodeG(5);
-
         graph.addEdgeUni(node0, node3);
         graph.addEdgeUni(node0, node5);
         graph.addEdgeUni(node3, node2);
@@ -39,12 +38,10 @@ public class App {
         graph.addEdgeUni(node2, node1);
         graph.addEdgeUni(node1, node0);
 
-
         graph.printGraph();
-        
-        graph.getDFS(node0);
 
-        graph.getBFS(node0);
+        graph.getDFS(node0);  
+        graph.getBFS(node0);  
         
 /* 
 

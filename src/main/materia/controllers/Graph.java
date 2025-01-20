@@ -23,7 +23,7 @@ public class Graph {
 
     public void addEdge(NodeGraph src, NodeGraph dest) {
         src.addNeighbor(dest);
-        dest.addNeighbor(src);  // Esto crea un grafo no dirigido
+        dest.addNeighbor(src); 
     }
 
     public void printGraph() {
@@ -38,7 +38,7 @@ public class Graph {
 
     public void addEdgeUni(NodeGraph src, NodeGraph dest) {
         src.addNeighbor(dest);
-        dest.addNeighbor(src);  // Asegura que es no dirigido
+        dest.addNeighbor(src);  
     }
 
     // Método DFS no dirigido
@@ -56,12 +56,7 @@ public class Graph {
         System.out.print(node.getValue() + " ");
         visitados.add(node);
 
-        // Ordenar los vecinos de manera que se sigan un patrón específico (3, 5, 2, 4, 1)
-        List<NodeGraph> neighbors = node.getNeighbors();
-        neighbors.sort((n1, n2) -> Integer.compare(n1.getValue(), n2.getValue())); // Orden ascendente por valor
-
-        // Recorremos los vecinos en el orden que se les ha dado
-        for (NodeGraph neighbor : neighbors) {
+        for (NodeGraph neighbor : node.getNeighbors()) {
             getDFSUtil(neighbor, visitados);
         }
     }
@@ -78,12 +73,7 @@ public class Graph {
             NodeGraph actual = cola.poll();
             System.out.print(actual.getValue() + " ");
 
-            // Ordenar los vecinos para garantizar el recorrido adecuado
-            List<NodeGraph> neighbors = actual.getNeighbors();
-            neighbors.sort((n1, n2) -> Integer.compare(n1.getValue(), n2.getValue())); // Orden ascendente por valor
-
-            // Agregar vecinos no visitados
-            for (NodeGraph neighbor : neighbors) {
+            for (NodeGraph neighbor : actual.getNeighbors()) {
                 if (!visitados.contains(neighbor)) {
                     visitados.add(neighbor);
                     cola.add(neighbor);
