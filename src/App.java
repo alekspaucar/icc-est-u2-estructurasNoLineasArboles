@@ -18,9 +18,36 @@ public class App {
         //runArbolAvl();
         //runInsertBST();
         runGraph();
-//probar el github
+
     }
     private static void runGraph(){
+
+        Graph graph = new Graph();
+
+        NodeGraph node0 = graph.addNodeG(0);
+        NodeGraph node1 = graph.addNodeG(1);
+        NodeGraph node2 = graph.addNodeG(2);
+        NodeGraph node3 = graph.addNodeG(3);
+        NodeGraph node4 = graph.addNodeG(4);
+        NodeGraph node5 = graph.addNodeG(5);
+
+        graph.addEdgeUni(node0, node3);
+        graph.addEdgeUni(node0, node5);
+        graph.addEdgeUni(node3, node2);
+        graph.addEdgeUni(node3, node4);
+        graph.addEdgeUni(node4, node1);
+        graph.addEdgeUni(node2, node1);
+        graph.addEdgeUni(node1, node0);
+
+
+        graph.printGraph();
+        
+        graph.getDFS(node0);
+
+        graph.getBFS(node0);
+        
+/* 
+
         Graph grafo = new Graph();
         NodeGraph nodo1 = grafo.addNodeG(5);
         NodeGraph nodo2 = grafo.addNodeG(7);
@@ -35,13 +62,10 @@ public class App {
         grafo.addEdge(nodo5, nodo4);
 
         grafo.printGraph();
+*/
+
 
     }
-
-
-
-
-
     public static void runInsertBST() {
         InsertBST bst = new InsertBST();
         Node root = null;

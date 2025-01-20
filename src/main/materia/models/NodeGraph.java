@@ -21,7 +21,8 @@ public class NodeGraph {
     }
   
     public void addNeighbor(NodeGraph neighbor){
-        this.neighbors.add(neighbor);
+        if (!neighbors.contains(neighbor)) {
+            neighbors.add(neighbor);
+        }
     }
-
 }
