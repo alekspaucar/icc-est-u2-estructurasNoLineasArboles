@@ -21,28 +21,66 @@ public class App {
 
     }
     private static void runGraph(){
+    // Grafo 1 (original con nodos y conexiones ya definidos)
+    Graph grafo1 = new Graph();
 
-        Graph graph = new Graph();
+    NodeGraph g1node0 = grafo1.addNode(0);
+    NodeGraph g1node1 = grafo1.addNode(1);
+    NodeGraph g1node2 = grafo1.addNode(2);
+    NodeGraph g1node3 = grafo1.addNode(3);
+    NodeGraph g1node4 = grafo1.addNode(4);
+    NodeGraph g1node5 = grafo1.addNode(5);
 
-        NodeGraph node0 = graph.addNodeG(0);
-        NodeGraph node1 = graph.addNodeG(1);
-        NodeGraph node2 = graph.addNodeG(2);
-        NodeGraph node3 = graph.addNodeG(3);
-        NodeGraph node4 = graph.addNodeG(4);
-        NodeGraph node5 = graph.addNodeG(5);
-        graph.addEdgeUni(node0, node3);
-        graph.addEdgeUni(node0, node5);
-        graph.addEdgeUni(node3, node2);
-        graph.addEdgeUni(node3, node4);
-        graph.addEdgeUni(node4, node1);
-        graph.addEdgeUni(node2, node1);
-        graph.addEdgeUni(node1, node0);
+    System.out.println("GRAFO 1 - DIRECCIONAL:");
+    grafo1.addEdgeUnit(g1node0, g1node3);
+    grafo1.addEdgeUnit(g1node0, g1node5);
+    grafo1.addEdgeUnit(g1node3, g1node2);
+    grafo1.addEdgeUnit(g1node3, g1node4);
+    grafo1.addEdgeUnit(g1node4, g1node1);
+    grafo1.addEdgeUnit(g1node2, g1node1);
+    grafo1.addEdgeUnit(g1node1, g1node0);
 
-        graph.printGraph();
+    grafo1.printGraph();
+    System.out.println();
 
-        graph.getDFS(node0);  
-        graph.getBFS(node0);  
-        
+    System.out.println("RECORRIDOS GRAFO 1:");
+    grafo1.getDFS(g1node0);
+    grafo1.getBFS(g1node0);
+    System.out.println();
+
+    Graph grafo2 = new Graph();
+
+    // Crear nodos según la imagen
+    NodeGraph g2node0 = grafo2.addNode(0);
+    NodeGraph g2node1 = grafo2.addNode(1);
+    NodeGraph g2node2 = grafo2.addNode(2);
+    NodeGraph g2node3 = grafo2.addNode(3);
+    NodeGraph g2node4 = grafo2.addNode(4);
+    NodeGraph g2node5 = grafo2.addNode(5);
+    NodeGraph g2node7 = grafo2.addNode(7);
+    NodeGraph g2node8 = grafo2.addNode(8);
+    NodeGraph g2node9 = grafo2.addNode(9);
+
+    // Conexiones del grafo según la imagen (dirigidas)
+    grafo2.addEdgeUnit(g2node0, g2node1);
+    grafo2.addEdgeUnit(g2node0, g2node5);
+    grafo2.addEdgeUnit(g2node0, g2node7);
+    grafo2.addEdgeUnit(g2node1, g2node2);
+    grafo2.addEdgeUnit(g2node2, g2node3);
+    grafo2.addEdgeUnit(g2node3, g2node4);
+    grafo2.addEdgeUnit(g2node4, g2node1);
+    grafo2.addEdgeUnit(g2node3, g2node7);
+    grafo2.addEdgeUnit(g2node7, g2node9);
+    grafo2.addEdgeUnit(g2node9, g2node5);
+    grafo2.addEdgeUnit(g2node7, g2node8);
+
+    System.out.println("----------------------------------------------------");
+    System.out.println("GRAFO 2 - REPRESENTACIÓN DE LA IMAGEN:");
+    grafo2.printGraph();
+
+    System.out.println("\nRECORRIDOS GRAFO 2:");
+    grafo2.getDFS(g2node0);
+    grafo2.getBFS(g2node0);
 /* 
 
         Graph grafo = new Graph();

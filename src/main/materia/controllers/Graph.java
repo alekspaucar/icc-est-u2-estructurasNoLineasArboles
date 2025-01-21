@@ -6,16 +6,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
+
 import main.materia.models.NodeGraph;
+
 
 public class Graph {
     private List<NodeGraph> nodes;
-
-    public Graph() {
+    
+    public Graph(){
         this.nodes = new ArrayList<>();
     }
 
-    public NodeGraph addNodeG(int value) {
+    public NodeGraph addNode(int value) {
         NodeGraph nodeGraph = new NodeGraph(value);
         nodes.add(nodeGraph);
         return nodeGraph;
@@ -23,49 +25,58 @@ public class Graph {
 
     public void addEdge(NodeGraph src, NodeGraph dest) {
         src.addNeighbor(dest);
-        dest.addNeighbor(src); 
+        dest.addNeighbor(src);
+    }
+
+    public void addEdgeUnit(NodeGraph src, NodeGraph dest) {
+        src.addNeighbor(dest);
     }
 
     public void printGraph() {
         for (NodeGraph nodeGraph : nodes) {
-            System.out.print("vertice: " + nodeGraph.getValue() + ": ");
-            for (NodeGraph nei : nodeGraph.getNeighbors()) {
-                System.out.print(nei.getValue() + " - ");
+            System.out.print("Vertice " + nodeGraph.getValue() + ": ");
+            for (NodeGraph neighbor : nodeGraph.getNeighbors()) {
+                System.out.print(neighbor.getValue() + " -> ");
             }
-            System.out.println();
+            System.out.println() ;
         }
     }
 
-    public void addEdgeUni(NodeGraph src, NodeGraph dest) {
-        src.addNeighbor(dest);
-        dest.addNeighbor(src);  
-    }
-
-    // Método DFS no dirigido
     public void getDFS(NodeGraph start) {
         Set<NodeGraph> visitados = new HashSet<>();
-        System.out.print("DFS no dirigido desde el nodo " + start.getValue() + ": ");
+        System.out.println("DFS desde el node " + start.getValue() + ":");
         getDFSUtil(start, visitados);
         System.out.println();
     }
 
-    private void getDFSUtil(NodeGraph node, Set<NodeGraph> visitados) {
-        if (visitados.contains(node)) {
+    private void getDFSUtil(NodeGraph start, Set<NodeGraph> visitados) {
+        if (visitados.contains(start)) {
             return;
+            
         }
-        System.out.print(node.getValue() + " ");
-        visitados.add(node);
 
-        for (NodeGraph neighbor : node.getNeighbors()) {
+        System.out.print(start.getValue() + " ");
+        visitados.add(start);
+
+        for (NodeGraph neighbor : start.getNeighbors()) {
             getDFSUtil(neighbor, visitados);
         }
     }
 
-    // Método BFS no dirigido
+    public boolean getDFS(NodeGraph start, NodeGraph destino) {
+        
+    }
+
+    private boolean getDFSUtil(NodeGraph node, NodeGraph destino, Set<NodeGraph> visitados) {
+
+    }
+
+
     public void getBFS(NodeGraph start) {
         Set<NodeGraph> visitados = new HashSet<>();
         Queue<NodeGraph> cola = new LinkedList<>();
-        System.out.print("BFS no dirigido desde el nodo " + start.getValue() + ": ");
+
+        System.out.println("BFS desde el nodo " + start.getValue() + ":");
         cola.add(start);
         visitados.add(start);
 
@@ -80,30 +91,5 @@ public class Graph {
                 }
             }
         }
-        System.out.println();
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* 
-    public int[][] getAdjacencyMatrix(){
-        return null;
-    }
-    public void printAdjacencyMatrix(){
     }
 }
-*/
